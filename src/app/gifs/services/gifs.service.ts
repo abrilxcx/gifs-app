@@ -14,6 +14,12 @@ export class GifsService {
   }
 
   searchTagService( tag: string ): void {
+
+    if( tag.length === 0 ){
+      alert('Write something... 🐳')
+      return;
+    }
+
     this._tagsHistory.unshift( tag );
   }
 
