@@ -13,6 +13,23 @@ export class GifsService {
     return [...this._tagsHistory];
   }
 
+  private organizeHistoryService(tag: string) {
+    tag = tag.toLowerCase();
+
+    if( this._tagsHistory.includes(tag) ) {
+      this._tagsHistory = this._tagsHistory.filter( (oldTag) => oldTag !== tag );
+    }
+
+    this._tagsHistory.unshift( tag );
+
+    // if( this._tagsHistory.length > 10 ) {
+    //   this._tagsHistory.pop();
+    // }
+
+    this._tagsHistory = this._tagsHistory.splice(0, 10);
+
+  }
+
   searchTagService( tag: string ): void {
 
     if( tag.length === 0 ){
@@ -20,7 +37,8 @@ export class GifsService {
       return;
     }
 
-    this._tagsHistory.unshift( tag );
+    this.organizeHistoryService( tag );
+
   }
 
 }
