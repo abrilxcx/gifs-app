@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'shared-sidebar',
@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+
+  @ViewChild('nmbTagInput')
+  public tagInput!: ElementRef<HTMLInputElement>
+
+  searchTag() {
+
+    const newTag = this.tagInput.nativeElement.value;
+    console.log({ newTag });
+
+    this.tagInput.nativeElement.value = '';
+
+
+  }
 
 }
