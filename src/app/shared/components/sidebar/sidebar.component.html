@@ -15,6 +15,7 @@
       list-group
       list-reset
     "
+    *ngFor="let tag of tagsHistory"
   >
 
     <button
@@ -23,15 +24,9 @@
         lsit-group-item-action
       "
     >
-      Blood moon
+      {{ tag.value }}
     </button>
 
   </div>
-
-  <input
-    type="number"
-    #nmbTagInput
-    (keyup.enter)="searchTag()"
-    >
 
 </div>

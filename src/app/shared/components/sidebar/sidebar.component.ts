@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GifsService } from 'src/app/gifs/services/gifs.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -7,17 +8,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class SidebarComponent {
 
-  @ViewChild('nmbTagInput')
-  public tagInput!: ElementRef<HTMLInputElement>
+  constructor( private gifsService: GifsService) {}
 
-  searchTag() {
-
-    const newTag = this.tagInput.nativeElement.value;
-    console.log({ newTag });
-
-    this.tagInput.nativeElement.value = '';
-
-
-  }
+  this.
 
 }
