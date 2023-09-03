@@ -1,3 +1,6 @@
+const GIPHY_API_KEY = 'Ck7X8SCuBaXlCnvSEXVn7ypeEsw8JOvo';
+
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
