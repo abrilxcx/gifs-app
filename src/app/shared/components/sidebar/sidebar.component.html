@@ -2,31 +2,31 @@
   class="
     bg-danger
     border-right
-    p-3
-  "
-  id="sidebar"
->
+    p-3"
 
-  <h3 class="text-light">Gifs app</h3>
-  <hr>
+  id="sidebar">
+
+  <h3
+    class="
+      text-light
+      mb-5">
+      Gifs app
+  </h3>
 
   <div
+    *ngFor="let tag of tags"
     class="
       list-group
-      list-reset
-    "
-    *ngFor="let tag of tags"
-  >
+      list-reset">
 
     <button
       class="
         list-group-item
-        lsit-group-item-action
-      "
-    >
+        lsit-group-item-action">
+
       {{ tag | titlecase }}
+
     </button>
 
   </div>
-
 </div>

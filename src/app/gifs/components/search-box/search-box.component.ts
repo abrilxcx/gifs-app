@@ -10,9 +10,7 @@ import { GifsService } from '../../services/gifs.service';
       class="form-control"
       placeholder="Search gifs..."
       #txtTagInput
-      (keyup.enter)="searchTagSearchBox()"
-    >
-
+      (keyup.enter)="searchTagSearchBox()">
   `
 })
 export class SearchBoxComponent {
