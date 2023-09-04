@@ -1,6 +1,6 @@
 const GIPHY_API_KEY = 'Ck7X8SCuBaXlCnvSEXVn7ypeEsw8JOvo';
 
-
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,8 +9,9 @@ import { Injectable } from '@angular/core';
 export class GifsService {
 
   private _tagsHistory: string[] = [];
+  private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
-  constructor() { }
+  constructor( private http: HttpClient ) { }
 
   get tagsHistory() {
     return [...this._tagsHistory];
@@ -24,11 +25,6 @@ export class GifsService {
     }
 
     this._tagsHistory.unshift( tag );
-
-    // if( this._tagsHistory.length > 10 ) {
-    //   this._tagsHistory.pop();
-    // }
-
     this._tagsHistory = this._tagsHistory.splice(0, 10);
 
   }
@@ -42,6 +38,16 @@ export class GifsService {
 
     this.organizeHistoryService( tag );
 
+    const params = new HttpParams()
+      .set('api_key', GIPHY_API_KEY)
+      .set('limit', '10')
+      .set('q', tag)
+
+    this.http.get(`${ this.serviceUrl}/search, { params }`)
+      .subscribe( resp => {
+        console.log(resp);
+
+      })
   }
 
 }
