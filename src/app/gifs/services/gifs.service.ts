@@ -43,7 +43,7 @@ export class GifsService {
       .set('limit', '10')
       .set('q', tag)
 
-    this.http.get(`${ this.serviceUrl}/search, ${ params }`)
+    this.http.get(`${ this.serviceUrl}/search`, { params })
       .subscribe( resp => {
         console.log(resp);
 
