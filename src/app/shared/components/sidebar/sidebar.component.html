@@ -14,12 +14,13 @@
   </h3>
 
   <div
-    *ngFor="let tag of tags"
     class="
       list-group
       list-reset">
 
     <button
+      *ngFor="let tag of tags"
+      (click)="searchTag( tag )"
       class="
         list-group-item
         lsit-group-item-action">
