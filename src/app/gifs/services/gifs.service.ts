@@ -14,10 +14,10 @@ export class GifsService {
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
   constructor( private http: HttpClient ) { }
-
   get tagsHistory() {
     return [...this._tagsHistory];
   }
+
 
   private organizeHistoryService(tag: string) {
     tag = tag.toLowerCase();
@@ -28,8 +28,14 @@ export class GifsService {
 
     this._tagsHistory.unshift( tag );
     this._tagsHistory = this._tagsHistory.splice(0, 10);
-
+    this.saveLocalStorage();
   }
+
+
+  private saveLocalStorage(): void {
+    localStorage.setItem('history', JSON.stringify( this._tagsHistory));
+  }
+
 
   searchTagService( tag: string ): void {
 
